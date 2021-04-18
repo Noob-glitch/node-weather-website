@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
+const port = process.env.PORT || 3000;
 const geocode = require("./utils/geocode");
 const weather = require("./utils/weather");
 //decalaring paths of directory which gonna be used later
@@ -65,6 +66,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is runnning!");
+app.listen(port, () => {
+  console.log("Server is runnning!" + port);
 });

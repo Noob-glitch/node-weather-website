@@ -9,15 +9,13 @@ form.addEventListener("submit", (e) => {
   const location = input.value;
   error.textContent = "loading";
   result.textContent = "";
-  fetch("http://localhost:3000/weather?address=" + location).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          error.textContent = data.error;
-        }
-        error.textContent = data.location;
-        result.textContent = data.weather;
-      });
-    }
-  );
+  fetch("/weather?address=" + location).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        error.textContent = data.error;
+      }
+      error.textContent = data.location;
+      result.textContent = data.weather;
+    });
+  });
 });
